@@ -1,8 +1,6 @@
-# [Demo](https://ancient-refuge-49866.herokuapp.com)
-
 # Images uploader UI component
 Simple component for upload and validate (client side) images with preview built with React.js.
-This package use ['react-flip-move'](https://github.com/joshwcomeau/react-flip-move) for animate the file preview images.
+This package use [react-flip-move](https://github.com/joshwcomeau/react-flip-move) for animate the file preview images.
 
 ## Installation
 
@@ -24,21 +22,21 @@ class App extends React.Component {
 		 this.onDrop = this.onDrop.bind(this);
 	}
 
-	onDrop(pictureFiles, pictureDataURLs) {
+	onDrop(picture) {
 		this.setState({
-            pictures: this.state.pictures.concat(pictureFiles),
+            pictures: this.state.pictures.concat(picture),
         });
 	}
 
     render() {
         return (
             <ImageUploader
-                	withIcon={true}
-                	buttonText='Choose images'
-                	onChange={this.onDrop}
-                	imgExtension={['.jpg', '.gif', '.png', '.gif']}
-                	maxFileSize={5242880}
-            />
+				withIcon={true}
+				buttonText='Choose images'
+				onChange={this.onDrop}
+				imgExtension={['.jpg', '.gif', '.png', '.gif']}
+				maxFileSize={5242880}
+			/>
         );
     }
 }
@@ -52,12 +50,11 @@ class App extends React.Component {
 | onChange | Function | - | On change handler for the input. |
 | buttonClassName | String | - | Class name for upload button. |
 | buttonStyles | Object | - | Inline styles for upload button. |
-| withPreview | Boolean | false | Show preview of selected images. |
+| withPreview | Boolean | true | Show preview of selected images. |
 | accept | String | "accept=image/*" | Accept attribute for file input. |
 | name | String | - | Input name. |
 | withIcon | Boolean | true | If true, show upload icon on top |
 | buttonText | String | 'Choose images' | The text that display in the button. |
-| buttonType | String | 'submit' | The value of the button's "type" attribute. |
 | withLabel | Boolean | true | Show instruction label |
 | label | String | 'Max file size: 5mb, accepted: jpg|gif|png|gif' | Label text |
 | labelStyles | Object | - | Inline styles for the label. |
@@ -68,9 +65,6 @@ class App extends React.Component {
 | fileTypeError | String | " is not supported file extension" | Label for file extension error message. |
 | errorClass | String | - | Class for error messages |
 | errorStyle | Object | - | Inline styles for errors |
-
-### Development
-Make sure you have [yarn](https://yarnpkg.com/en/) installed. Clone the repo and run `yarn`.
 
 ### License
 MIT
